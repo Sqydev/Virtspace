@@ -9,10 +9,12 @@ if [ ! -f "$TARGET_PATH" ]; then
     exit 1
 fi
 
+USB_DEVICES="$USB_LIST"
+
 USB_ARGS=""
-for usb in $(lsusb | awk '{print $6}'); do
-    VID=$(echo $usb | cut -d: -f1)
-    PID=$(echo $usb | cut -d: -f2)
+for dev in $USB_DEVICES; do
+    VID=$(echo "$dev" | cut -d: -f1)
+    PID=$(echo "$dev" | cut -d: -f2)
     USB_ARGS="$USB_ARGS -device usb-host,vendorid=0x$VID,productid=0x$PID"
 done
 

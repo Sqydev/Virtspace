@@ -6,6 +6,8 @@ VM_NAME="WorkspaceVm"
 DISK_NAME="$VM_NAME.qcow2"
 DISK_SIZE="200G"
 
+export USB_LIST="303a:1001"
+
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 TEMPLATE_DIR="$SCRIPT_DIR/template"
 SHARED_DIR_PATH="$HOME/projects/Vmdirs"
